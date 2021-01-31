@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAAC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <style>
+
+        body{
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .card:hover{
+            cursor: pointer;
+        }
+
+        .borda-card{
+            border-left: 2px solid #17a2b8;
+        }
+
+        .card-selecionado{
+            cursor: pointer;
+            border: 2px solid #007bff;
+        }
+
+        .tabela-cursor{
+            cursor: pointer;
+        }
+
+        .tabela-selecionada{
+            color: #ffffff;
+            background-color: #007bff !important;
+        }
+
+        .table-hover .tabela-selecionada:hover {
+            color: #ffffff;
+            background-color: #9fcdff;
+        }
+
+        .nao-quebra-tabela{
+            white-space: nowrap;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#"><i class="far fa-file mr-1"></i>Gaac</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cabecalho">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="cabecalho">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Administradores Gerais</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Cursos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Tipo dos Cursos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Administradores de Curso</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Disciplinas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Professores</a>
+            </li>
+          </ul>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle text-white" type="button" id="usuario" data-toggle="dropdown">
+                <i class="fas fa-user mr-1"></i>Jorge Gabriel
+            </button>
+            <div class="dropdown-menu" aria-labelledby="usuario">
+                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-1"></i>Configurações</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-1"></i>Sair</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-11 mb-5">
+
+                <h3 class="text-center mt-4 mb-5">Administradores Gerais</h3>
+
+                <div class="my-5">
+                    <button type="button" class="btn btn-info mr-4"><i class="fas fa-user-plus"></i> &nbsp; Cadastrar</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mr-4"><i class="fas fa-user-edit"></i> &nbsp;Alterar</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mr-4" id="permitir"><i class="fas fa-user-check"></i> &nbsp;Permitir</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mr-4" id="proibir"><i class="fas fa-user-times"></i> &nbsp; Proibir</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger d-none btn-multiplo" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fas fa-user-slash"></i> &nbsp;Excluir
+                    </button>
+  
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Mensagem de Aviso</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja mesmo excluir?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Sim</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!--Buscas e paginação-->
+                <div class="mt-5">
+                                        
+                    <div class="row justify-content-between">
+
+                        <!--campo de busca-->
+                        <div class="col-12 col-md-4">
+
+                            <form class="form-inline">
+                                <input type="text" class="form-control form-control-sm mr-1" placeholder="pesquisar por nome">
+                                <button type="submit" class="btn btn-outline-primary btn-sm d-none d-lg-block"><i class="fas fa-search"></i>Buscar</button>
+                            </form>
+
+                        </div>
+
+                        <!--Paginação-->
+                        <div class="col-12 col-md-4 mt-3 mt-md-0 text-center">
+
+                            <button type="button" class="btn btn-sm"><i class="fas fa-angle-double-left"></i></button>
+                            <span>Página 2 de 10</span>
+                            <button type="button" class="btn btn-sm"><i class="fas fa-angle-double-right"></i></button>
+
+                        </div>
+
+                        <!--Quantidade na tela-->
+                        <div class="col-12 col-md-4 mt-3 mt-md-0">
+
+                            <form class="form-inline float-md-right ">
+                                <label for="qtd" class="mr-2 d-none d-md-block">Exibir: </label>
+                                <select id="qtd" class="form-control form-control-sm">
+                                    <option value="4">4</option>
+                                    <option value="4">8</option>
+                                    <option value="4">12</option>
+                                </select>
+                            </form>
+                            
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <ul class="nav nav-tabs mt-4">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#cards"><i class="far fa-id-card mr-1"></i>Cards</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#tabela"><i class="fas fa-table mr-1"></i>Tabela</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3">
+
+                    <!--Cards-->
+                    <div class="tab-pane fade show active" id="cards">
+                        
+                        <div class="row">
+
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-2">
+
+                                <div class="card borda-card">
+
+                                    <div class="card-header py-2">
+                                        <h6 class="d-inline mb-0">Matrícula</h6>
+                                        <span>1333</span>
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <h6 class="mb-0 mt-1">Nome</h6>
+                                        <span>João</span>
+
+                                        <h6 class="mb-0 mt-3">Email</h6>
+                                        <span>joao@gmail.com</span>
+
+                                        <h6 class="mb-0 mt-3">Cargo</h6>
+                                        <span>Reitor</span>
+
+                                        <h6 class="mb-0 mt-3">Administrador de Curso?</h6>
+                                        <span id="isAdmCurso">Não</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-2">
+
+                                <div class="card borda-card">
+
+                                    <div class="card-header py-2">
+                                        <h6 class="d-inline mb-0">Matrícula</h6>
+                                        <span>1334</span>
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <h6 class="mb-0 mt-1">Nome</h6>
+                                        <span>Maria</span>
+
+                                        <h6 class="mb-0 mt-3">Email</h6>
+                                        <span>maria@hotmail.com</span>
+
+                                        <h6 class="mb-0 mt-3">Cargo</h6>
+                                        <span>Vice - Reitor</span>
+
+                                        <h6 class="mb-0 mt-3">Administrador de Curso?</h6>
+                                        <span id="isAdmCurso">Sim</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-2">
+
+                                <div class="card borda-card">
+
+                                    <div class="card-header py-2">
+                                        <h6 class="d-inline mb-0">Matrícula</h6>
+                                        <span>1335</span>
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <h6 class="mb-0 mt-1">Nome</h6>
+                                        <span>José</span>
+
+                                        <h6 class="mb-0 mt-3">Email</h6>
+                                        <span>jose@gmail.com</span>
+
+                                        <h6 class="mb-0 mt-3">Cargo</h6>
+                                        <span>Assistente</span>
+
+                                        <h6 class="mb-0 mt-3">Administrador de Curso?</h6>
+                                        <span id="isAdmCurso">Sim</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-2">
+
+                                <div class="card borda-card">
+
+                                    <div class="card-header py-2">
+                                        <h6 class="d-inline mb-0">Matrícula</h6>
+                                        <span>1336</span>
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <h6 class="mb-0 mt-1">Nome</h6>
+                                        <span>Lúcia</span>
+
+                                        <h6 class="mb-0 mt-3">Email</h6>
+                                        <span>lucia@hotmail.com</span>
+
+                                        <h6 class="mb-0 mt-3">Cargo</h6>
+                                        <span>Assistente</span>
+
+                                        <h6 class="mb-0 mt-3">Administrador de Curso?</h6>
+                                        <span class="isAdmCurso">Sim</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                    <!--Tabela-->
+                    <div class="tab-pane fade" id="tabela">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover my-1">
+                                <thead class="thead-light">
+                                    <tr class="nao-quebra-tabela">
+                                        <th>Matrícula<i class="fas fa-sort ml-1"></i></th>
+                                        <th>Nome<i class="fas fa-sort ml-1"></i></th>
+                                        <th>Email</th>
+                                        <th class="text-center">Cargo</th>
+                                        <th class="text-center">Administrador de Curso?<i class="fas fa-sort ml-1"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tabela-cursor">
+
+                                    <tr class="nao-quebra-tabela">
+                                        <td>1333</td>
+                                        <td>João</td>
+                                        <td>joao@gmail.com</td>
+                                        <td class="text-center">Reitor</td>
+                                        <td class="text-center" id="isAdmCurso">Sim</td>
+                                    </tr>
+
+                                    <tr class="nao-quebra-tabela">
+                                        <td>1334</td>
+                                        <td>Maria</td>
+                                        <td>maria@hotmail.com</td>
+                                        <td class="text-center">Vice-Reitor</td>
+                                        <td class="text-center" id="isAdmCurso">Sim</td>
+                                    </tr>
+
+                                    <tr class="nao-quebra-tabela">
+                                        <td>1335</td>
+                                        <td>José</td>
+                                        <td>jose@gmail.com</td>
+                                        <td class="text-center">Assistente</td>
+                                        <td class="text-center" id="isAdmCurso">Sim</td>
+                                    </tr>
+
+                                    <tr class="nao-quebra-tabela">
+                                        <td>1336</td>
+                                        <td>Lúcia</td>
+                                        <td>lucia@hotmail.com</td>
+                                        <td class="text-center">Assistente</td>
+                                        <td class="text-center" id="isAdmCurso">Sim</td>
+                                    </tr>
+
+                                    
+
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white fixed-bottom">
+        <p class="text-center my-auto p-3">&copy;2020 - Todos os direitos reservados - Desenvolvido pelo projeto GAAC</p>
+    </footer>
+
+    <script>
+        
+        $('#cards').on('change', function(e){
+        let _admCurso = $('#isAdmCurso').text()
+        var _eAdm = "Sim";
+    
+
+        if(_admCurso == _eAdm){
+        $('#permitir').attr('disabled')
+    }
+
+    })
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d151290823.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>         
+</html>
