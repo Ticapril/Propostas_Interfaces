@@ -31,13 +31,8 @@
         }
 
         .tabela-selecionada{
-            color: #ffffff;
-            background-color: #007bff !important;
-        }
-
-        .table-hover .tabela-selecionada:hover {
-            color: #ffffff;
-            background-color: #9fcdff;
+            color: #212529;
+            background-color: rgba(0,0,0,.075);
         }
 
         .nao-quebra-tabela{
@@ -49,7 +44,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#"><i class="far fa-file mr-1"></i>Gaac</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cabecalho">
           <span class="navbar-toggler-icon"></span>
@@ -101,21 +96,21 @@
                 <h3 class="text-center mt-4 mb-5">Cursos</h3>
 
                 <div class="my-5">
-                    <button type="button" class="btn btn-info"><i class="fas fa-plus mr-1"></i>Cadastrar</button>
-                    <button type="button" class="btn btn-info d-none btn-unico"><i class="fas fa-book-reader mr-1"></i>Disciplinas</button>
-                    <button type="button" class="btn btn-info d-none btn-unico"><i class="fas fa-chalkboard-teacher mr-1"></i>Professores</button>
-                    <button type="button" class="btn btn-info d-none btn-unico"><i class="fas fa-user-cog mr-1"></i>Administradores</button>
-                    <button type="button" class="btn btn-info d-none btn-unico"><i class="fas fa-edit mr-1"></i>Alterar</button>
-                    <button type="button" class="btn btn-danger d-none btn-multiplo"><i class="fas fa-trash mr-1"></i>Excluir</button>
+                    <button type="button" class="btn btn-info mt-2 mt-lg-0"><i class="fas fa-plus mr-1"></i>Cadastrar</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mt-2 mt-lg-0"><i class="fas fa-book-reader mr-1"></i>Disciplinas</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mt-2 mt-lg-0"><i class="fas fa-chalkboard-teacher mr-1"></i>Professores</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mt-2 mt-lg-0"><i class="fas fa-user-cog mr-1"></i>Administradores</button>
+                    <button type="button" class="btn btn-info d-none btn-unico mt-2 mt-lg-0"><i class="fas fa-edit mr-1"></i>Alterar</button>
+                    <button type="button" class="btn btn-danger d-none btn-multiplo mt-2 mt-lg-0"><i class="fas fa-trash mr-1"></i>Excluir</button>
                 </div>
                 
                 <!--Buscas e paginação-->
                 <div class="mt-5">
                                         
-                    <div class="row justify-content-between">
+                    <div class="row">
 
                         <!--campo de busca-->
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 col-sm-4">
 
                             <form class="form-inline">
                                 <input type="text" class="form-control form-control-sm mr-1" placeholder="pesquisar por nome">
@@ -125,7 +120,7 @@
                         </div>
 
                         <!--Paginação-->
-                        <div class="col-12 col-md-4 mt-3 mt-md-0 text-center">
+                        <div class="col-8 col-sm-5 mt-3 mt-sm-0 text-center">
 
                             <button type="button" class="btn btn-sm"><i class="fas fa-angle-double-left"></i></button>
                             <span>Página 2 de 10</span>
@@ -134,9 +129,9 @@
                         </div>
 
                         <!--Quantidade na tela-->
-                        <div class="col-12 col-md-4 mt-3 mt-md-0">
+                        <div class="col-4 col-sm-3 mt-3 mt-sm-0">
 
-                            <form class="form-inline float-md-right ">
+                            <form class="form-inline float-right">
                                 <label for="qtd" class="mr-2 d-none d-md-block">Exibir: </label>
                                 <select id="qtd" class="form-control form-control-sm">
                                     <option value="4">4</option>
@@ -146,7 +141,6 @@
                             </form>
                             
                         </div>
-
 
                     </div>
 
@@ -172,6 +166,7 @@
                                 <div class="card borda-card">
 
                                     <div class="card-header py-2">
+                                        <input type="checkbox">
                                         <h6 class="d-inline mb-0">Código</h6>
                                         <span>333</span>
                                     </div>
@@ -200,6 +195,7 @@
                                 <div class="card borda-card">
 
                                     <div class="card-header py-2">
+                                        <input type="checkbox">
                                         <h6 class="d-inline mb-0">Código</h6>
                                         <span>333</span>
                                     </div>
@@ -228,6 +224,7 @@
                                 <div class="card borda-card">
 
                                     <div class="card-header py-2">
+                                        <input type="checkbox">
                                         <h6 class="d-inline mb-0">Código</h6>
                                         <span>333</span>
                                     </div>
@@ -256,6 +253,7 @@
                                 <div class="card borda-card">
 
                                     <div class="card-header py-2">
+                                        <input type="checkbox">
                                         <h6 class="d-inline mb-0">Código</h6>
                                         <span>333</span>
                                     </div>
@@ -289,6 +287,7 @@
                             <table class="table table-sm table-hover my-1">
                                 <thead class="thead-light">
                                     <tr class="nao-quebra-tabela">
+                                        <th></th>
                                         <th>Código</th>
                                         <th>Nome<i class="fas fa-sort ml-1"></i></th>
                                         <th>Tipo</th>
@@ -299,6 +298,9 @@
                                 <tbody class="tabela-cursor">
 
                                     <tr class="nao-quebra-tabela">
+                                        <td class="text-center">
+                                            <input type="checkbox">
+                                        </td>
                                         <td>333</td>
                                         <td>Ciência da Computação</td>
                                         <td>Bacharelado</td>
@@ -307,6 +309,9 @@
                                     </tr>
 
                                     <tr class="nao-quebra-tabela">
+                                        <td class="text-center">
+                                            <input type="checkbox">
+                                        </td>
                                         <td>333</td>
                                         <td>Ciência da Computação</td>
                                         <td>Bacharelado</td>
@@ -315,6 +320,9 @@
                                     </tr>
 
                                     <tr class="nao-quebra-tabela">
+                                        <td class="text-center">
+                                            <input type="checkbox">
+                                        </td>
                                         <td>333</td>
                                         <td>Ciência da Computação</td>
                                         <td>Bacharelado</td>
@@ -323,6 +331,9 @@
                                     </tr>
 
                                     <tr class="nao-quebra-tabela">
+                                        <td class="text-center">
+                                            <input type="checkbox">
+                                        </td>
                                         <td>333</td>
                                         <td>Ciência da Computação</td>
                                         <td>Bacharelado</td>
@@ -331,6 +342,9 @@
                                     </tr>
 
                                     <tr class="nao-quebra-tabela">
+                                        <td class="text-center">
+                                            <input type="checkbox">
+                                        </td>
                                         <td>333</td>
                                         <td>Ciência da Computação</td>
                                         <td>Bacharelado</td>
@@ -338,6 +352,16 @@
                                         <td class="text-center">5000 horas</td>
                                     </tr>
 
+                                    <tr class="nao-quebra-tabela">
+                                        <td class="text-center">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>333</td>
+                                        <td>Ciência da Computação</td>
+                                        <td>Bacharelado</td>
+                                        <td class="text-center">8</td>
+                                        <td class="text-center">5000 horas</td>
+                                    </tr>
                                     
                                 </tbody>
                             </table>
