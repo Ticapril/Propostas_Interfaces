@@ -15,6 +15,12 @@
   <!-- Custom styles for this template -->
   <link href="css/dashboard.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+    body{
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+</style>
 </head>
 
 <body>
@@ -63,123 +69,146 @@
   </nav>
   <br>
   <br>
-  <main role="main" class=" ml-auto px-4">
-    <h2 class="py-5"style="text-align: center;">Administradores Gerais</h2>
-   
-    <h2 class="h4 px-3" style="text-align: center;">Preencha os campos abaixo para cadastrar</h2>
-
-    
-     
-    <form class="needs-validation pt-5" novalidate>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="validationCustom01">Matrícula</label>
-          <input type="text" class="form-control" id="validationCustom01" value="" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="validationCustom02">Nome</label>
-          <input type="text" class="form-control" id="validationCustom02" value="" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4">
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="inputPassword4">
-          </div>
-      </div>
-      <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="inputCargo" class="form-label">Cargo</label>
-            <input type="text" class="form-control" id="inputCargo">
-          </div>
-          <div class="col-md-6">
-            <label for="inputUser" class="form-label">User</label>
-            <input type="text" class="form-control" id="inputUser">
-          </div>
-      </div>
-      <div class="form-group mb-5">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-          <label class="form-check-label" for="invalidCheck">
-            Agree to terms and conditions
-          </label>
-          <div class="invalid-feedback">
-            You must agree before submitting.
-          </div>
-        </div>
-      </div>
-
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#cadastrar">
-  <i class="fas fa-user-plus"></i> &nbsp; Cadastrar
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Mensagem de aviso</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Deseja salvar os dados cadastrados?
-      </div>
-      <div class="modal-footer">
-        <a href="index.html"><button type="button" class="btn btn-primary">Sim</button></a>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-   <!-- Button trigger modal -->
-   <button type="button" class="btn btn-danger mb-5 ml-3" data-toggle="modal" data-target="#cancelar">
-    <i class="fas fa-window-close"></i> &nbsp; Cancelar
-  </button>
   
-  <!-- Modal -->
-  <div class="modal fade" id="cancelar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Mensagem de aviso</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Deseja mesmo cancelar e retornar para a página principal?
-        </div>
-        <div class="modal-footer">
-          <a href="index.html"><button type="button" class="btn btn-primary">Sim</button></a>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-        </div>
-      </div>
-    </div>
-  </div>
-    </form>
-    
-    
-      
-  </main>
+  <div class="container">
 
+    <div class="row justify-content-center">
+
+      
+
+        <div class="col-12 col-md-11 mb-5">
+            <h3 class="text-center mt-4 mb-5">Cadastrar Administrador Geral</h3>
+            
+            
+
+            <p class="text-muted text-center mt-3">Preencha os campos abaixo</p>
+
+            <form class="mt-3 mt-md-4">
+
+              <div class="form-row">
+                <div class="col-12 col-md-1"></div> 
+                <div class="col-12 col-md-3 mb-4">
+                  <button type="button" class="btn btn-outline-info my-2 mr-3" data-toggle="modal" data-target="#cancelar">
+                    <i class="fas fa-undo mr-1"></i>Voltar
+                  </button>
+                  
+                  <div class="modal fade" id="cancelar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Mensagem de aviso</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Deseja mesmo cancelar e retornar para a página principal?
+                        </div>
+                        <div class="modal-footer">
+                          <a href="index.html"><button type="button" class="btn btn-primary">Sim</button></a>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               
+
+                <div class="form-row">
+                  <div class="col-12 col-md-1"></div>
+                  <div class="col-12 col-md-5">
+                    <div class="form-group">
+                      <div class="input-group mb-5">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="col-12 col-md-3">
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Matrícula</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                    </div>
+                </div>
+                  <div class="col-12 col-md-3">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cargo</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                  </div>  
+                </div>
+
+                <div class="form-row">
+                  <div class="col-12 col-md-1"></div> 
+                    <div class="col-12 col-md-5">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Senha</span>
+                        </div>
+                        <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Confirma</span>
+                        </div>
+                        <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                    </div>
+                </div>
+
+                <div class="form-row d-flex justify-content-end mt-4">
+                  <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#cadastrar">
+                    <i class="fas fa-user-plus"></i> &nbsp; Cadastrar
+                  </button>
+                  
+                  
+                  <div class="modal fade" id="cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Mensagem de aviso</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Deseja salvar os dados cadastrados?
+                        </div>
+                        <div class="modal-footer">
+                          <a href="index.html"><button type="button" class="btn btn-primary">Sim</button></a>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+  </div>
   <br>
   <br>
 
